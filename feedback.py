@@ -10,8 +10,8 @@ driver = webdriver.Chrome('/home/raj/Desktop/autosend-whatsapp/chromedriver')
 driver.get("http://moodle.msit.in/login/index.php")
 wait = WebDriverWait(driver, 100)
 
-driver.execute_script("document.querySelectorAll('div.textbox-wrap > input')[0].value='6115002715'")
-driver.execute_script("document.querySelectorAll('div.textbox-wrap > input')[1].value='Moodle@31'")
+driver.execute_script("document.querySelectorAll('div.textbox-wrap > input')[0].value='{YOUR USERNAME HERE}'")
+driver.execute_script("document.querySelectorAll('div.textbox-wrap > input')[1].value='{YOUR PASSWORD HERE}'")
 
 login_xpath = '//input[contains(@id, "loginbtn1")]'
 login = wait.until(EC.presence_of_element_located((By.XPATH, login_xpath)))
@@ -39,8 +39,8 @@ cs_lab = 9361
 lab_codes_A = [ada_lab_code_A_B, se_lab_A ,java_lab, dcs_lab, cs_lab]
 lab_codes_B = [ada_lab_code_A_B, se_lab_B_C ,java_lab, dcs_lab, cs_lab]
 lab_codes_C = [ada_lab_code_C ,se_lab_B_C ,java_lab, dcs_lab, cs_lab]
-ada_theory
-subject_codes = [se_theory, java_theory, im_theory, dcs_theory, cs_theory]
+
+subject_codes = [se_theory, java_theory, im_theory, dcs_theory, cs_theory, ada_theory]
 
 for code in subject_codes:
 	subject_link_xpath = '//a[contains(@href, "http://moodle.msit.in/mod/feedback/view.php?id=' + str(code) + '")]'
@@ -79,7 +79,7 @@ IN THE FOR LOOP BELOW REPLACE THE <LAB CODE HERE> WITH THE FOLLOWING CODES:
 2. lab_codes_B : IF YOU BELONG TO GROUP B
 3. lab_codes_C : IF YOU BELONG TO GROUP C
 """
-for code in lab_codes_B:
+for code in {YOUR LABCODE HERE}:
 	subject_link_xpath = '//a[contains(@href, "http://moodle.msit.in/mod/feedback/view.php?id=' + str(code) + '")]'
 	subject_link = wait.until(EC.presence_of_element_located((By.XPATH, subject_link_xpath)))
 	subject_link.click()
@@ -123,4 +123,3 @@ for code in lab_codes_B:
 				cancel_button = driver.find_element_by_tag_name('button')
 				cancel_button.click()
 		
-		#driver.execute_script("document.querySelectorAll(\"form > div > input[type='submit']\")[0].click()")
