@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 
-driver = webdriver.Chrome('/home/raj/Desktop/autosend-whatsapp/chromedriver')
+driver = webdriver.Chrome('{GLOBAL PATH OF CHROMEDRIVER}')
 
 driver.get("http://moodle.msit.in/login/index.php")
 wait = WebDriverWait(driver, 100)
