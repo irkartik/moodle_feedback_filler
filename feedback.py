@@ -85,7 +85,7 @@ IN THE FOR LOOP BELOW REPLACE THE <LAB CODE HERE> WITH THE FOLLOWING CODES:
 2. lab_codes_B : IF YOU BELONG TO GROUP B
 3. lab_codes_C : IF YOU BELONG TO GROUP C
 """
-for code in lab_codes_B:
+for code in {LAB CODE HERE}:
 	subject_link_xpath = '//a[contains(@href, "http://moodle.msit.in/mod/feedback/view.php?id=' + str(code) + '")]'
 	subject_link = wait.until(EC.presence_of_element_located((By.XPATH, subject_link_xpath)))
 	subject_link.click()
