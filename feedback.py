@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 
-driver = webdriver.Chrome('{GLOBAL PATH OF CHROMEDRIVER}')
+driver = webdriver.Chrome('{GLOBAL PATH FOR CHROMEDRIVER}')
 
 driver.get("http://moodle.msit.in/login/index.php")
 wait = WebDriverWait(driver, 100)
@@ -68,6 +68,8 @@ for code in subject_codes:
 			continue
 	except NoSuchElementException:
 		print('FEEDBACK ALREADY FILLED')
+	except WebDriverException:
+		print('NO FEEDBACK FORM RECIEVED')
 	try:
 		driver.execute_script("document.querySelectorAll(\"form > div > input[type='submit']\")[0].click()")
 	except:
@@ -85,7 +87,7 @@ IN THE FOR LOOP BELOW REPLACE THE <LAB CODE HERE> WITH THE FOLLOWING CODES:
 2. lab_codes_B : IF YOU BELONG TO GROUP B
 3. lab_codes_C : IF YOU BELONG TO GROUP C
 """
-for code in {LAB CODE HERE}:
+for code in {YOUR LABCODE HERE}:
 	subject_link_xpath = '//a[contains(@href, "http://moodle.msit.in/mod/feedback/view.php?id=' + str(code) + '")]'
 	subject_link = wait.until(EC.presence_of_element_located((By.XPATH, subject_link_xpath)))
 	subject_link.click()
@@ -117,7 +119,9 @@ for code in {LAB CODE HERE}:
 		else: 
 			continue
 	except NoSuchElementException:
-			print('FEEDBACK ALREADY FILLED')
+		print('FEEDBACK ALREADY FILLED')
+	except WebDriverException:
+		print('NO FEEDBACK FORM RECIEVED')
 	try:
 		driver.execute_script("document.querySelectorAll(\"form > div > input[type='submit']\")[0].click()")
 	except:
@@ -128,4 +132,3 @@ for code in {LAB CODE HERE}:
 		except:
 				cancel_button = driver.find_element_by_tag_name('button')
 				cancel_button.click()
-		
