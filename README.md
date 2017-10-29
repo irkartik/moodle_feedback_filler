@@ -1,7 +1,5 @@
-# moodle_feedback_filler
+# moodle_feedback_filler (<a href = "https://youtu.be/ZVkv3yzOseQ">Demo</a>)
 We hate filling feedback forms, don't we? Relax, this script fills the moodle feedback form for you!
-
-<img src='/demo.gif/>
 
 This script automates your task for filling the MSIT moodle feedback form
 
