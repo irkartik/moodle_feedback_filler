@@ -51,7 +51,6 @@ for code in subject_codes:
 		elm = driver.find_element_by_link_text('Answer the questions...')
 
 		if elm.is_displayed():
-			print('foo')
 			elm.click()
 
 			driver.execute_script("document.querySelectorAll('span.feedback_item_textfield > input')[0].value='50%'")
@@ -67,11 +66,18 @@ for code in subject_codes:
 			submit_answer.click()
 		else:
 			continue
-		print('hello')
 	except NoSuchElementException:
-		print('no element found')
-	if driver.execute_script("document.querySelectorAll(\"form > div > input[type='submit']\")[0].click()") != None:
+		print('FEEDBACK ALREADY FILLED')
+	try:
 		driver.execute_script("document.querySelectorAll(\"form > div > input[type='submit']\")[0].click()")
+	except:
+		try:
+			continue_button = driver.find_element_by_link_text('Continue the form')
+			if continue_button.is_displayed():
+				continue_button.click()
+		except:
+				cancel_button = driver.find_element_by_tag_name('button')
+				cancel_button.click()
 
 """
 IN THE FOR LOOP BELOW REPLACE THE <LAB CODE HERE> WITH THE FOLLOWING CODES:
@@ -79,7 +85,7 @@ IN THE FOR LOOP BELOW REPLACE THE <LAB CODE HERE> WITH THE FOLLOWING CODES:
 2. lab_codes_B : IF YOU BELONG TO GROUP B
 3. lab_codes_C : IF YOU BELONG TO GROUP C
 """
-for code in {YOUR LABCODE HERE}:
+for code in lab_codes_B:
 	subject_link_xpath = '//a[contains(@href, "http://moodle.msit.in/mod/feedback/view.php?id=' + str(code) + '")]'
 	subject_link = wait.until(EC.presence_of_element_located((By.XPATH, subject_link_xpath)))
 	subject_link.click()
@@ -103,7 +109,7 @@ for code in {YOUR LABCODE HERE}:
 				submit_answer = wait.until(EC.presence_of_element_located((By.XPATH, submit_answer_xpath)))
 				submit_answer.click()
 			except WebDriverException:
-				print('no form')
+				print('NO FEEDBACK FORM RECIEVED')
 				cancel_button = driver.find_element_by_link_text('Cancel')
 				cancel_button.click()
 
@@ -111,7 +117,7 @@ for code in {YOUR LABCODE HERE}:
 		else: 
 			continue
 	except NoSuchElementException:
-			print('no element found')
+			print('FEEDBACK ALREADY FILLED')
 	try:
 		driver.execute_script("document.querySelectorAll(\"form > div > input[type='submit']\")[0].click()")
 	except:
