@@ -30,7 +30,7 @@ cs_theory = 9351
 
 ada_lab_code_A_B = 9352
 ada_lab_code_C = 9354
-se_lab_A = 5355
+se_lab_A = 9355
 se_lab_B_C = 9356
 java_lab = 9357
 dcs_lab = 9359
