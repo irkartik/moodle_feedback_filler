@@ -1,6 +1,8 @@
 # moodle_feedback_filler
 We hate filling feedback forms, don't we? Relax, this script fills the moodle feedback form for you!
 
+<img src='/demo.gif/>
+
 This script automates your task for filling the MSIT moodle feedback form
 
 Any contributions from you guys are welcome. Just fork this repository, make changes in the code and create a pull request, I will merge the changes if it seems interesting. :)
